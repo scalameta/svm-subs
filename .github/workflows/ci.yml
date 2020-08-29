@@ -18,5 +18,5 @@ jobs:
       - uses: olafurpg/setup-scala@v7
         with:
           java-version: "adopt@1.${{ matrix.java }}"
+      - run: git fetch --tags || true
       - run: sbt +publishLocal
-        shell: bash
