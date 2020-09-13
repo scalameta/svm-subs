@@ -1,3 +1,4 @@
+def scala212 = "2.12.12"
 inThisBuild(
   List(
     organization := "org.scalameta",
@@ -13,20 +14,10 @@ inThisBuild(
         url("https://geirsson.com")
       )
     ),
-    scalaVersion := scala213
+    scalaVersion := scala212,
+    crossScalaVersions := List(scala212)
   )
 )
-
-def scala212 = "2.12.12"
-def scala213 = "2.13.3"
-def scalaVersions = List(scala212, scala213)
-lazy val svmVersion = Def.setting {
-  dynverGitDescribeOutput.value.get.previousVersion
-  // previousStableVersion.value.getOrElse {
-    // sys.error("missing git tag. To fix this problem, run: git fetch --tags")
-    // "20.1.0"
-  // }
-}
 
 crossScalaVersions := Nil
 skip in publish := true
@@ -35,8 +26,8 @@ lazy val subs = project
   .in(file("svm-subs"))
   .settings(
     moduleName := "svm-subs",
-    crossScalaVersions := scalaVersions,
-    libraryDependencies += "org.graalvm.nativeimage" % "svm" % svmVersion.value % "compile-internal",
+    crossVersion := CrossVersion.disabled,
+    libraryDependencies += "org.graalvm.nativeimage" % "svm" % "20.2.0" % "compile-internal",
     sources in (Compile, doc) := Seq.empty,
     javaHome in Compile := {
       // force javac to fork by setting javaHome to workaround https://github.com/sbt/zinc/issues/520
