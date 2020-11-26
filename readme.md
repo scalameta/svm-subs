@@ -22,7 +22,7 @@ To use this project, add to `build.sbt`
     )
 ```
 
-Replace GRAALVM_VERSION with a GraalVM version like "20.2.0". See [releases](https://github.com/scalameta/svm-subs/releases) for what GraalVM versions are supported.
+Replace GRAALVM_VERSION with a GraalVM version like "20.3.0". See [releases](https://github.com/scalameta/svm-subs/releases) for what GraalVM versions are supported.
 
 That's it. The next time you generate a native image you should not get this error anymore.
 

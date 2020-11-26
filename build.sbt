@@ -27,7 +27,7 @@ lazy val subs = project
   .settings(
     moduleName := "svm-subs",
     crossVersion := CrossVersion.disabled,
-    libraryDependencies += "org.graalvm.nativeimage" % "svm" % "20.2.0" % "compile-internal",
+    libraryDependencies += "org.graalvm.nativeimage" % "svm" % "20.3.0" % "compile-internal",
     sources in (Compile, doc) := Seq.empty,
     javaHome in Compile := {
       // force javac to fork by setting javaHome to workaround https://github.com/sbt/zinc/issues/520
