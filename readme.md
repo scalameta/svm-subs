@@ -18,7 +18,7 @@ To use this project, add to `build.sbt`
   // build.sbt
   lazy val myNativeImageProject = project
     .settings(
-+     libraryDependencies += "org.scalameta" %% "svm-subs" % "GRAALVM_VERSION" % "compile-internal"
++     libraryDependencies += "org.scalameta" %% "svm-subs" % "GRAALVM_VERSION" % Compile
     )
 ```
 
